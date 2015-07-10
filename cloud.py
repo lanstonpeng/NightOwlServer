@@ -13,7 +13,7 @@ engine = Engine(app)
 
 @engine.define
 def get_upload_token(**params):
-    token = q.upload_token('NightOwl', 'test_key')
+    token = q.upload_token('nightowl', params['key'])
     return token
 
 
