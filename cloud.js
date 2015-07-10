@@ -1,10 +1,8 @@
 var AV = require('leanengine');
-//var qiniu = require('qiniu');
+var qiniu = require('qiniu');
 
-/*
 qiniu.conf.ACCESS_KEY = 'ETRZmSoIoK-VUPMXBwNLF89xjLUM8qNEp8gIB4HQ';
 qiniu.conf.SECRET_KEY = 'fIvu13JBUbWhQ5FetU-v5aLlVuT5HePap0ZnSu0q';
-*/
 
 /**
  * 一个简单的云代码方法

@@ -4,10 +4,10 @@ var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var todos = require('./routes/todos');
 var cloud = require('./cloud');
-var qiniu = require('qiniu');
+// var qiniu = require('qiniu');
 
-qiniu.conf.ACCESS_KEY = 'ETRZmSoIoK-VUPMXBwNLF89xjLUM8qNEp8gIB4HQ';
-qiniu.conf.SECRET_KEY = 'fIvu13JBUbWhQ5FetU-v5aLlVuT5HePap0ZnSu0q';
+// qiniu.conf.ACCESS_KEY = 'ETRZmSoIoK-VUPMXBwNLF89xjLUM8qNEp8gIB4HQ';
+// qiniu.conf.SECRET_KEY = 'fIvu13JBUbWhQ5FetU-v5aLlVuT5HePap0ZnSu0q';
 
 var app = express();
 
