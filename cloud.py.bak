@@ -13,19 +13,21 @@ q = Auth('ETRZmSoIoK-VUPMXBwNLF89xjLUM8qNEp8gIB4HQ',
 
 engine = Engine(app)
 
-API_URL = 'http://apis.baidu.com/apistore/idlocr/ocr'
-API_KEY = "0c69d1b8ec1c96561cb9ca3c037d7225"
+#API_URL = 'http://apis.baidu.com/apistore/idlocr/ocr'
+#API_KEY = "0c69d1b8ec1c96561cb9ca3c037d7225"
 
+'''
 @engine.define
-def get_image_text(img_url=None):
+def get_image_text(**params):
 	headers = {}
-	# download image
+	#img_url = params["img_url"];
+	img_url = "http://www.liantu.com/tiaoma/eantitle.php?title=enl2dnhtUHNPMzQ0TUFpRk5sOTZseEZpYk1PeFYwWlBFQlc2a1dtZjcwaz0="
 	opener = urllib2.build_opener()
 	opener.addheaders = [('User-agent', 'Mozilla/5.0')]
 	response = opener.open(img_url)
 	img_data = response.read()
 
-	# save image to some place
+    # save image to some place
 	origin_img = tempfile.NamedTemporaryFile(delete=False)
 	save_img = tempfile.NamedTemporaryFile(delete=False)
 
@@ -64,7 +66,8 @@ def get_image_text(img_url=None):
 	if(content):
 		return content
 
-	return None
+	return "oops"
+'''
 
 @engine.define
 def get_upload_token(**params):
