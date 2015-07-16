@@ -17,9 +17,10 @@ API_URL = 'http://apis.baidu.com/apistore/idlocr/ocr'
 API_KEY = "0c69d1b8ec1c96561cb9ca3c037d7225"
 
 @engine.define
-def get_image_text(img_url=None):
+def get_image_text(**params):
 	headers = {}
 	# download image
+	img_url = params['img_url']
 	opener = urllib2.build_opener()
 	opener.addheaders = [('User-agent', 'Mozilla/5.0')]
 	response = opener.open(img_url)
