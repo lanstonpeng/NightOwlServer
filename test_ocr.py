@@ -1,32 +1,29 @@
-# coding: utf-8
-from leancloud import Engine
-from app import app
-from qiniu import Auth
+#!/usr/bin/env python
+# encoding: utf-8
 import urllib, urllib2
 import tempfile
 import base64
-import os
 from PIL import Image
+import os
 
-q = Auth('ETRZmSoIoK-VUPMXBwNLF89xjLUM8qNEp8gIB4HQ',
-'fIvu13JBUbWhQ5FetU-v5aLlVuT5HePap0ZnSu0q')
-
-engine = Engine(app)
-
+# 全局变量
 API_URL = 'http://apis.baidu.com/apistore/idlocr/ocr'
 API_KEY = "0c69d1b8ec1c96561cb9ca3c037d7225"
 
-@engine.define
+
 def get_image_text(img_url=None):
-	headers = {}
+    headers = {}
     # download image
     opener = urllib2.build_opener()
     opener.addheaders = [('User-agent', 'Mozilla/5.0')]
+    #img_request = urllib2.Request(img_url, headers=headers)
+    #img_data = urllib2.urlopen(img_request).read()
     response = opener.open(img_url)
     img_data = response.read()
 
     # save image to some place
     origin_img = tempfile.NamedTemporaryFile(delete=False)
+
     save_img = tempfile.NamedTemporaryFile(delete=False)
 
     origin_img.write(img_data)
@@ -66,16 +63,6 @@ def get_image_text(img_url=None):
 
     return None
 
-@engine.define
-def get_upload_token(**params):
-    token = q.upload_token('nightowl', params['key'])
-    return token
 
-
-
-@engine.define
-def hello(**params):
-    if 'name' in params:
-        return 'Hello, {}!'.format(params['name'])
-    else:
-        return 'Hello, LeanCloud!'
+if __name__ == "__main__":
+    print get_image_text("http://www.liantu.com/tiaoma/eantitle.php?title=enl2dnhtUHNPMzQ0TUFpRk5sOTZseEZpYk1PeFYwWlBFQlc2a1dtZjcwaz0=")
